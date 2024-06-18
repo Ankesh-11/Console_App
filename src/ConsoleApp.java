@@ -146,6 +146,15 @@ public class ConsoleApp {
         String number = getNumber(sc);
         List<String> mobileNumbers = new ArrayList<>();
         mobileNumbers.add(number);
+        number=null;
+        System.out.println("If you want to add another number \n Enter 1 for add another number \n Enter 2 do not add another number ");
+        int choice = getIntInput(sc);
+        if(choice ==1) {
+            System.out.println("\nEnter Mobile number :");
+            number = getNumber(sc);
+            mobileNumbers.add(number);
+        }
+
         User newUser = new User(name, email, mobileNumbers);
         usersList.add(newUser);
        // System.out.println(newUser.getName()==null);
