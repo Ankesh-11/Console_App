@@ -98,7 +98,7 @@ public class ConsoleApp {
         while (!isValidEmail(email)) {
             System.out.println("Email is not valid. Please enter a valid email:");
             email = sc.next();
-            sc.nextLine(); // Consume the newline
+            //sc.nextLine(); // Consume the newline
         }
         return email;
     }
@@ -113,7 +113,8 @@ public class ConsoleApp {
         return name;
     }
     static boolean isValidEmail(String email) {
-        return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        return email.matches( "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
     }
 
     public static boolean isValidMobileNumber(String mobileNumber) {
@@ -164,7 +165,7 @@ public class ConsoleApp {
     static void fetchSingleUser(Scanner sc) throws UserNotFoundException {
         System.out.println("Enter your email:");
         String email = getValidEmail(sc);
-        sc.nextLine(); // Consume the newline
+       // sc.nextLine(); // Consume the newline
 
 
         boolean userFound = false;
@@ -200,7 +201,7 @@ public class ConsoleApp {
     static void updateUser(Scanner sc) throws UserNotFoundException{
         System.out.println("Enter the email of the user you want to update:");
         String email = getValidEmail(sc);
-        sc.nextLine(); // Consume the newline
+        //sc.nextLine(); // Consume the newline
         for (User user : usersList) {
             if (user.getEmail().equals(email)) {
                 System.out.println("Enter 1 to update user name");
@@ -250,7 +251,7 @@ public class ConsoleApp {
     static void deleteUser(Scanner sc) throws UserNotFoundException{
         System.out.println("Enter the email of the user you want to delete:");
         String email = getValidEmail(sc);
-        sc.nextLine(); // Consume the newline
+        //sc.nextLine(); // Consume the newline
         Iterator<User> iterator = usersList.iterator();
         while (iterator.hasNext()) {
             User user = iterator.next();
