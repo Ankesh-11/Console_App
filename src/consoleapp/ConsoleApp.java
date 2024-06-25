@@ -57,7 +57,7 @@ public class ConsoleApp {
                     break;
                 case 0:
                     System.out.println("Exiting...");
-                    System.out.println("-----------------***-----------------");
+                    System.out.println("--------------***--------------");
                     return;
                 default:
                     System.err.println("Invalid choice. Try again.");
