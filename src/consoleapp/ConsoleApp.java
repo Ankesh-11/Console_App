@@ -15,12 +15,12 @@ public class ConsoleApp {
             System.out.println("--------------***--------------");
             System.out.print("Choose an option: ");
 
-            int choice = Helper.getIntInput();
+            int choice = UserMethods.getIntInput();
             switch (choice) {
                 case 1:
                     try
                     {
-                        Helper.createUser();
+                        UserMethods.createUser();
                     }
                     catch (PatternSyntaxException e){
                         System.err.print(e);
@@ -29,28 +29,28 @@ public class ConsoleApp {
                     break;
                 case 2:
                     try {
-                        Helper.fetchSingleUser();
+                        UserMethods.fetchSingleUser();
                     } catch (UserNotFoundException | PatternSyntaxException e) {
                         System.err.print(e);
                     }
                     break;
                 case 3:
                     try {
-                        Helper.fetchAllUsers();
+                        UserMethods.fetchAllUsers();
                     } catch (UserNotFoundException e) {
                         System.err.print(e);
                     }
                     break;
                 case 4:
                     try {
-                        Helper.updateUser();
+                        UserMethods.updateUser();
                     } catch (UserNotFoundException | PatternSyntaxException e) {
                         System.err.print(e);
                     }
                     break;
                 case 5:
                     try {
-                        Helper.deleteUser();
+                        UserMethods.deleteUser();
                     } catch (UserNotFoundException | PatternSyntaxException e) {
                         System.err.print(e);
                     }

@@ -1,7 +1,7 @@
 package consoleapp;
 import java.util.*;
 
-public class Helper {
+public class UserMethods {
     static Scanner sc = new Scanner(System.in);
     private static final ArrayList<User> usersList = new ArrayList<User>();// visibility
     static int getIntInput() {
