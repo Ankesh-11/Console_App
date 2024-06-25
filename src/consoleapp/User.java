@@ -1,11 +1,11 @@
+package consoleapp;
 
 import java.util.ArrayList;
 import java.util.List;
 class User {
 
     private String name;
-    private String email;
-    private String mobile;
+    private final String email;
     private List<String> mobileNumbers;
 
     User(String name, String email, List<String> mobileNumbers) {
@@ -25,23 +25,20 @@ class User {
     public String getEmail() {
         return email;
     }
-    public List<String> getMobileNumbers() {
-        return mobileNumbers;
-    }
-
-    public void setMobileNumbers(List<String> mobileNumbers) {
-        this.mobileNumbers = mobileNumbers;
-    }
-
-    public int getMobileNumbersSize() {
-        return mobileNumbers.size();
+    public String getMobileNumbers() {
+        StringBuilder mobileNumber= new StringBuilder();
+        mobileNumber.append(mobileNumbers.getFirst());
+        for(int i=1;i< mobileNumbers.size();i++) {
+             mobileNumber.append(", ").append(mobileNumbers.get(i));
+        }
+        return mobileNumber.toString();
     }
     public void addMobileNumber(List<String> newList) {
         mobileNumbers.addAll(newList);
     }
     public void updateMobileNumbers(List<String> list)
     {
-        String num = list.get(0);
+        String num = list.getFirst();
         mobileNumbers.set(0,num);
     }
 
