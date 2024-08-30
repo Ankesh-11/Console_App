@@ -63,10 +63,10 @@ public class UserMethods {
         sc.nextLine();
         for (User user : usersList) {
             while(true) {
-                if (user.getEmail().equals(email)) {
+                if (user.getEmail().equals(email)) { // check accordingly
                     System.err.println("User already exist with this email");
                     System.out.println("Please enter another email :");
-                    email = getValidEmail();
+                    email = getValidEmail(); // change logic, seems like condition will not useful in true cases.
                 }
                 else
                     break;
@@ -78,7 +78,6 @@ public class UserMethods {
         String number = getValidMobileNumber();
         List<String> mobileNumbers = new ArrayList<>();
         mobileNumbers.add(number);
-        number = null;
         int choice;
         while(true)
         {
@@ -108,7 +107,7 @@ public class UserMethods {
     static void fetchSingleUser() throws UserNotFoundException, PatternSyntaxException {
         System.out.println("Enter your email:");
             String email = getValidEmail();
-            boolean userFound = false;
+            boolean userFound = true;
             for (User user : usersList) {
                 if (user.getEmail().equals(email)) {
                     System.out.println("\n------------***------------");
@@ -117,11 +116,11 @@ public class UserMethods {
                     System.out.println("User Email = " + user.getEmail());
                     System.out.println("User Mobile Numbers = " +user.getMobileNumbers());
                     System.out.println("------------***------------");
-                    userFound = true;
+                    userFound = false;
                     break;
                 }
             }
-            if (!userFound) {
+            if (userFound) {
                 throw new UserNotFoundException("\nUser not found");
             }
     }
